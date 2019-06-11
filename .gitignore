@@ -1,52 +1,298 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <locale.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main()
+{
+	setlocale(LC_CTYPE,"");
+	
+	int i;
+	float mm, cm, m, km, mg, g, kg, t, ms, s, min, h, C, F, K;
+	char Transformacoes, Comprimento, Massa, Tempo, Temperatura;
 
-# Linker output
-*.ilk
-*.map
-*.exp
 
-# Precompiled Headers
-*.gch
-*.pch
+	printf("Escolha o tipo de transformação desejada: \n");
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+	printf("a) Comprimento:\n");
+	printf("b) Massa:\n");
+	printf("c) Tempo:\n");
+	printf("d) Temperatura:\n");
+	fflush(stdin);
+	scanf(" %c", &Transformacoes);
+	fflush(stdin);
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+	if ((Transformacoes != 'a') && (Transformacoes != 'b') && (Transformacoes != 'c') && (Transformacoes != 'd'))
+	{
+		printf("A opção escolhida não esta como alternativa.\n");
+	}
+	else
+	{
+		if (Transformacoes == 'a')
+		{
+			printf("Escolha o tipo de unidade que será iserida: \n");
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+			printf("a) Milimetro:\n");
+			printf("b) Centimetro:\n");
+			printf("c) Metro:\n");
+			printf("d) Quilometro:\n");
+			fflush(stdin);
+			scanf(" %c", &Comprimento);
+			fflush(stdin);
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+			if ((Comprimento != 'a') && (Comprimento != 'b') && (Comprimento != 'c') && (Comprimento != 'd'))
+			{
+				printf("A opção escolhida não esta como alternativa.\n");
+			}
+			else
+			{
+				if (Comprimento == 'a')
+				{
+					printf("Digite o valor em milimetros: ");
+					scanf("%f", &mm);
+					cm = mm * (0.1);
+					m = mm * (0.001);
+					km = mm * (0.000001);
+					printf("O valor em centimetros ?:%.2f \n", cm);
+					printf("O valor em metros ?:%.2f \n", m);
+					printf("O valor em quilometros ?:%.2f \n", km);
+				}
+				else
+				{
+					if (Comprimento == 'b')
+					{
+						printf("Digite o valor em centimetro: ");
+						scanf("%f", &cm);
+						mm = cm * (10);
+						m = cm * (0.01);
+						km = cm * (0.00001);
+						printf("O valor em milimetro ?:%.2f \n", mm);
+						printf("O valor em metros ?:%.2f \n", m);
+						printf("O valor em quilometros ?:%.2f \n", km);
+					}
+					else
+					{
+						if (Comprimento == 'c')
+						{
+							printf("Digite o valor em metros: ");
+							scanf("%f", &m);
+							mm = m * (1000);
+							cm = m * (100);
+							km = m * (0.001);
+							printf("O valor em milimetros ?:%.2f \n", mm);
+							printf("O valor em centimetros ?:%.2f \n", cm);
+							printf("O valor em quilometros ?:%.2f \n", km);
+						}
+						else
+						{
+							printf("Digite o valor em quilometros: ");
+							scanf("%f", &km);
+							mm = km * (1000000);
+							cm = km * (100000);
+							m = km * (1000);
+							printf("O valor em milimetros ?:%.2f \n", mm);
+							printf("O valor em centimetros ?:%.2f \n", cm);
+							printf("O valor em metros ?:%.2f \n", m);
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			if (Transformacoes == 'b')
+			{
+				printf("Escolha o tipo de unidade que será iserida: \n");
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+				printf("a) Miligrama:\n");
+				printf("b) Grama:\n");
+				printf("c) Quilograma:\n");
+				printf("d) Tonelada:\n");
+				fflush(stdin);
+				scanf(" %c", &Massa);
+				fflush(stdin);
+
+				if ((Massa != 'a') && (Massa != 'b') && (Massa != 'c') && (Massa != 'd'))
+				{
+					printf("A opção escolhida não esta como alternativa.\n");
+				}
+				else
+				{
+					if (Massa == 'a')
+					{
+						printf("Digite o valor em miligrama: ");
+						scanf("%f", &mg);
+						g = mg * (0.001);
+						kg = mg * (0.000001);
+						t = mg * (0.000000001);
+						printf("O valor em grama ?:%.2f \n", g);
+						printf("O valor em quilograma ?:%.2f \n", kg);
+						printf("O valor em tonelada ?:%.2f \n", t);
+					}
+					else
+					{
+						if (Massa == 'b')
+						{
+							printf("Digite o valor em grama: ");
+							scanf("%f", &g);
+							mg = g * (1000);
+							kg = g * (0.001);
+							t = g * (0.000001);
+							printf("O valor em miligrama e:%.2f \n", mg);
+							printf("O valor em quilograma e:%.2f \n", kg);
+							printf("O valor em tonelada e:%.2f \n", t);
+						}
+						else
+						{
+							if (Massa == 'c')
+							{
+								printf("Digite o valor em quilograma: ");
+								scanf("%f", &kg);
+								mg = kg * (1000000);
+								g = kg * (1000);
+								t = kg * (0.001);
+								printf("O valor em miligrama ?:%.2f \n", mg);
+								printf("O valor em grama ?:%.2f \n", g);
+								printf("O valor em tonelada ?:%.2f \n", t);
+							}
+							else
+							{
+								printf("Digite o valor em tonelada: ");
+								scanf("%f", &t);
+								mg = t * (1000000000);
+								g = t * (1000000);
+								kg = t * (1000);
+								printf("O valor em milgrama ?:%.2f \n", mg);
+								printf("O valor em grama ?:%.2f \n", g);
+								printf("O valor em quilograma ?:%.2f \n", kg);
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				if (Transformacoes == 'c')
+				{
+					printf("Escolha o tipo de unidade que será iserida: \n");
+
+					printf("a) Milisegundos:\n");
+					printf("b) Segundos:\n");
+					printf("c) Minutos:\n");
+					printf("d) Horas:\n");
+					fflush(stdin);
+					scanf(" %c", &Tempo);
+					fflush(stdin);
+
+					if ((Tempo != 'a') && (Tempo != 'b') && (Tempo != 'c') && (Tempo != 'd'))
+					{
+						printf("A opção escolhida não esta como alternativa.\n");
+					}
+					else
+					{
+						if (Tempo == 'a')
+						{
+							printf("Digite o valor em milisegundos: ");
+							scanf("%f", &ms);
+							s = ms * (0.001);
+							m = ms / (60000);
+							h = ms / (3600000);
+							printf("O valor em segundos ?:%.2f \n", s);
+							printf("O valor em minutos ?:%.2f \n", m);
+							printf("O valor em horas ?:%.2f \n", h);
+						}
+						else
+						{
+							if (Tempo == 'b')
+							{
+								printf("Digite o valor em segundos: ");
+								scanf("%f", &s);
+								ms = s * (0.001);
+								m = s / (60);
+								h = s / (3600);
+								printf("O valor em milisegundos ?:%.2f \n", ms);
+								printf("O valor em minutos ?:%.2f \n", m);
+								printf("O valor em horas ?:%.2f \n", h);
+							}
+							else
+							{
+								if (Tempo == 'c')
+								{
+									printf("Digite o valor em minutos: ");
+									scanf("%f", &m);
+									ms = m * (60000);
+									s = m * (60);
+									h = m / (60);
+									printf("O valor em milisegundos ?:%.2f \n", ms);
+									printf("O valor em segundos ?:%.2f \n", s);
+									printf("O valor em horas ?:%.2f \n", h);
+								}
+								else
+								{
+									printf("Digite o valor em horas: ");
+									scanf("%f", &h);
+									ms = h * (3600000);
+									s = h * (3600);
+									m = h * (60);
+									printf("O valor em milisegundos ?:%.2f \n", ms);
+									printf("O valor em segundos ?:%.2f \n", s);
+									printf("O valor em minutos ?:%.2f \n", m);
+								}
+							}
+						}
+					}
+				}
+				else
+				{
+					printf("Escolha o tipo de unidade que será iserida: \n");
+
+					printf("a) Fahrenheit:\n");
+					printf("b) Celcius:\n");
+					printf("c) Kelvin:\n");
+					fflush(stdin);
+					scanf(" %c", &Temperatura);
+					fflush(stdin);
+
+					if ((Temperatura != 'a') && (Temperatura != 'b') && (Temperatura != 'c'))
+					{
+						printf("A opção escolhida não esta como alternativa.\n");
+					}
+					else
+					{
+						if (Temperatura == 'a')
+						{
+							printf("Digite o valor em fahrenheit: ");
+							scanf("%f", &F);
+							C = (F - 32) / (1.8);
+							K = (F + 459.67) / (1.8);
+							printf("O valor em celcius ?:%.2f \n", C);
+							printf("O valor em kelvin ?:%.2f \n", K);
+						}
+						else
+						{
+							if (Temperatura == 'b')
+							{
+								printf("Digite o valor em celcius: ");
+								scanf("%f", &C);
+								F = ((1.8) * C) + 32;
+								K = C + 273;
+								printf("O valor em fahrenheit ?:%.2f \n", F);
+								printf("O valor em kelvin ?:%.2f \n", K);
+							}
+							else
+							{
+								printf("Digite o valor em kelvin: ");
+								scanf("%f", &K);
+								C = K - 273;
+								F = ((1.8) * K) - 459.67 ;
+								printf("O valor em fahrenheit ?:%.2f \n", F);
+								printf("O valor em kelvin ?:%.2f \n", K);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return 0;
+}
